@@ -88,8 +88,11 @@ class StatisticsPrinter:
         print(f"n = {self.d_s.size}, σ = {self.d_s.scale}. % = {self.d_s.percent}")
         print(f"Середньоквадратичне відхилення  = {self.d_s.deviation}")
         print(f"Середнє значення = {self.d_s.mean}")
+        print(f"Перевірка середньоквадратичного відхилення: {statistics.stdev(self.d_s.data)} "
+              f"та середнього значення: {np.mean(self.d_s.data)}")
         print(f"Довірчий інтервал на математичне сподівання = {self.d_s.confidence_interval_expected_value}")
         print(f"Довірчий інтервал на середньоквадратичне відхилення = {self.d_s.confidence_interval_deviation}\n")
+
 
 
 class ResolverUtils:
