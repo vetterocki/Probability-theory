@@ -41,20 +41,6 @@ class DescriptiveStatistics:
         return np.sqrt((length - 1) * np.square(self.deviation) / upper_critical_value), np.sqrt(
             (length - 1) * np.square(self.deviation) / lower_critical_value)
 
-    def checks(self):
-        print(np.std(self.data))
-        print(statistics.stdev(self.data))
-        data = self.data
-        mean = np.mean(data)
-        std_dev = np.std(data)
-        confidence_level = 0.95
-        n = len(data)
-        df = n - 1
-        t_critical = t.ppf((1 + confidence_level) / 2, df)
-        margin_of_error = t_critical * (std_dev / np.sqrt(n))
-        confidence_interval = (mean - margin_of_error, mean + margin_of_error)
-        print("Довірчий інтервал:", confidence_interval)
-
 
 class DependencyResolver:
     def __init__(self, d_s: DescriptiveStatistics, percents, samples):
@@ -92,7 +78,6 @@ class StatisticsPrinter:
               f"та середнього значення: {np.mean(self.d_s.data)}")
         print(f"Довірчий інтервал на математичне сподівання = {self.d_s.confidence_interval_expected_value}")
         print(f"Довірчий інтервал на середньоквадратичне відхилення = {self.d_s.confidence_interval_deviation}\n")
-
 
 
 class ResolverUtils:
